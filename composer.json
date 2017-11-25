@@ -1,0 +1,31 @@
+{
+  "name": "pfilsx/core-lite-generator",
+  "description": "The CRUD generator for Core-Lite framework",
+  "keywords": ["core-lite", "CRUD"],
+  "type": "core-lite-extension",
+  "license": "BSD-3-Clause",
+  "support": {
+    "issues": "https://github.com/pfilsx/core-lite-generator/issues",
+    "source": "https://github.com/pfilsx/core-lite-generator"
+  },
+  "authors": [
+    {
+      "name": "Pavel Filimonov",
+      "email": "pfilsx@gmail.com"
+    }
+  ],
+  "require": {
+    "pfilsx/core-lite": ">= 1.5"
+  },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/pfilsx/core-lite"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "core\\generator\\": ""
+    }
+  }
+}
