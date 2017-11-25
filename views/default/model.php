@@ -1,7 +1,10 @@
 <?php
 use core\helpers\Url;
 ?>
-
+<?= \core\widgets\breadcrumbs\Breadcrumbs::widget([
+        'Core Lite Generator' => Url::toAction('index'),
+        'Single Model Generator' => null
+]) ?>
 <div class="row">
     <div class="col-md-6 col-md-offset-3">
         <div class="row">
@@ -19,7 +22,6 @@ use core\helpers\Url;
             <label for="table_name" class="control-label">Select table</label>
             <select id="table_name" class="form-control">
                 <option value="" selected></option>
-                <option value="*">*</option>
                 <?php foreach ($tables as $table) { ?>
                     <option value="<?=$table?>"><?=$table?></option>
                 <?php } ?>

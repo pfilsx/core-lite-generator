@@ -21,10 +21,10 @@ class DefaultController extends Controller
 
     public function actionIndex()
     {
-        $this->redirect('generator/default/model-generator');
+        $this->redirect('generator/default/single-model-generator');
     }
 
-    public function actionModelGenerator(){
+    public function actionSingleModelGenerator(){
         $model = new ModelForm();
         $model->model_namespace = 'app\models';
         $model->model_base_class = 'core\components\ActiveModel';
