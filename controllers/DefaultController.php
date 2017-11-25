@@ -1,10 +1,10 @@
 <?php
 
 
-namespace app\shop_lite\modules\generator\controllers;
+namespace core\generator\controllers;
 
 
-use app\shop_lite\modules\generator\models\ModelForm;
+use core\generator\models\ModelForm;
 use core\base\App;
 use core\components\Controller;
 

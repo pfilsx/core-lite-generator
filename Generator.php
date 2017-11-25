@@ -1,7 +1,7 @@
 <?php
 
 
-namespace app\shop_lite\modules\generator;
+namespace core\generator;
 
 
 use Core;

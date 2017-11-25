@@ -1,7 +1,7 @@
 <?php
 
 
-\app\shop_lite\modules\generator\CoreGenAssets::registerAssets();
+\core\generator\CoreGenAssets::register();
 ?>
 <!DOCTYPE html>
 <html lang="en">

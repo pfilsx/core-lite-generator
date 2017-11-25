@@ -1,25 +1,28 @@
 <?php
 
 
-namespace app\shop_lite\modules\generator;
+namespace core\generator;
 
 
 use core\components\AssetBundle;
 
 class CoreGenAssets extends AssetBundle
 {
-    public static function cssAssets()
+    public $basePath = '@core-gen/assets';
+
+    public function cssAssets()
     {
-        return ['@core-gen/assets/crl.core-gen.main.css'];
+        return ['crl.core-gen.main.css'];
     }
-    public static function jsAssets()
+    public function jsAssets()
     {
-        return ['@core-gen/assets/crl.core-gen.main.js'];
+        return ['crl.core-gen.main.js'];
     }
-    public static function depends()
+    public function depends()
     {
         return [
-            'core\assets\MainAssets'
+            'core\assets\MainAssets',
+            'core\bootstrap\BootstrapAsset'
         ];
     }
 }
