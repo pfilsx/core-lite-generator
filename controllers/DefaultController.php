@@ -21,7 +21,8 @@ class DefaultController extends Controller
 
     public function actionIndex()
     {
-        $this->redirect('generator/default/single-model-generator');
+        return 'test';
+//        $this->redirect('generator/default/single-model-generator');
     }
 
     public function actionSingleModelGenerator(){
