@@ -2,7 +2,7 @@
   "name": "pfilsx/core-lite-generator",
   "description": "The CRUD generator for Core-Lite framework",
   "keywords": ["core-lite", "CRUD"],
-  "type": "core-lite-extension",
+  "type": "library",
   "license": "BSD-3-Clause",
   "support": {
     "issues": "https://github.com/pfilsx/core-lite-generator/issues",
