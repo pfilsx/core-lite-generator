@@ -1,7 +1,7 @@
 <?php
 
 
-namespace core\generator;
+namespace core\generator\controllers;
 
 
 use core\generator\models\ModelForm;
