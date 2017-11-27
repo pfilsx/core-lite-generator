@@ -59,7 +59,7 @@ class ModelForm extends Model
             return 'Unable to generate model class';
         }
         $path = FileHelper::normalizePath(Core::getAlias($this->models_path));
-        if (FileHelper::createDirectory($path, 0777)){
+        if (@FileHelper::createDirectory($path, 0777)){
             $fileName = $path.DIRECTORY_SEPARATOR.$this->model_name.'.php';
             if (@file_put_contents($fileName, $result) !== false){
                 chmod($fileName, 0777);

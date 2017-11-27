@@ -13,10 +13,10 @@ use core\base\App;
     <p>This generator generates an ActiveModel class for the specific database table</p>
 </div>
 <div class="row">
-    <?php if (App::$instance->session->hasFlash('message')) { ?>
-        <div class="alert alert-success" role="alert"><?= App::$instance->session->getFlash('message');?></div>
-    <?php } elseif (App::$instance->session->hasFlash('error_message')) { ?>
-        <div class="alert alert-danger" role="alert"><?= App::$instance->session->getFlash('error-message');?></div>
+    <?php if (($message = App::$instance->session->getFlash('message')) !== null) { ?>
+        <div class="alert alert-success" role="alert"><?= $message ?></div>
+    <?php } elseif (($message = App::$instance->session->getFlash('error-message')) !== null) { ?>
+        <div class="alert alert-danger" role="alert"><?= $message ?></div>
     <?php } ?>
 </div>
 <div class="row">

@@ -36,10 +36,11 @@ class DefaultController extends Controller
                     return $model->ajaxValidate();
                 }
                 if (($result = $model->generateModel()) === true){
-                    App::$instance->session->addFlash('message', "Model {$model->model_name} successfully generated");
+                    App::$instance->session->setFlash('message', "Model {$model->model_name} successfully generated");
+                } else {
+                    App::$instance->session
+                        ->setFlash('error_message', "An error occurred while creating {$model->model_name}: {$result}");
                 }
-                App::$instance->session
-                    ->addFlash('error_message', "An error occurred while creating {$model->model_name}: {$result}");
             }
         }
         $tables = App::$instance->db->getSchema()->getTableNames();
