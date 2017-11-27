@@ -26,12 +26,14 @@ use core\helpers\Url;
         </div>
     </div>
     <div class="col-sm-6 col-md-4">
-        <div class="caption">
-            <h3>CRUD generator</h3>
-            <p>This generator generates a controller and views that implement CRUD(Create, Read, Update, Delete) for a specific Model.</p>
-            <p>
-                <a href="<?= Url::toAction('multiple-model-generator')?>" class="btn btn-primary" role="button">Start >></a>
-            </p>
+        <div class="thumbnail">
+            <div class="caption">
+                <h3>CRUD generator</h3>
+                <p>This generator generates a controller and views that implement CRUD(Create, Read, Update, Delete) for a specific Model.</p>
+                <p>
+                    <a href="<?= Url::toAction('multiple-model-generator')?>" class="btn btn-primary" role="button">Start >></a>
+                </p>
+            </div>
         </div>
     </div>
 </div>
