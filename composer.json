@@ -15,7 +15,7 @@
     }
   ],
   "require": {
-    "pfilsx/core-lite": ">= 1.5"
+    "pfilsx/core-lite": "dev-develop as 1.5"
   },
   "repositories": [
     {

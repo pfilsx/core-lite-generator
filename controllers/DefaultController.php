@@ -21,8 +21,7 @@ class DefaultController extends Controller
 
     public function actionIndex()
     {
-        return 'test';
-//        $this->redirect('generator/default/single-model-generator');
+        return $this->render('index');
     }
 
     public function actionSingleModelGenerator(){
@@ -48,5 +47,13 @@ class DefaultController extends Controller
             unset($tables[$idx]);
         }
         return $this->render('model', ['tables' => $tables, 'model' => $model]);
+    }
+
+    public function actionMultipleModelGenerator(){
+        return 'Not implemented yet';
+    }
+
+    public function actionCrudGenerator(){
+        return 'Not implemented yet';
     }
 }
