@@ -1,10 +1,10 @@
 <?php
 use core\helpers\Url;
 ?>
-<?= \core\bootstrap\Breadcrumbs::widget([
+<?= \core\bootstrap\Breadcrumbs::widget(['items' => [
         'Core Lite Generator' => Url::toAction('index'),
         'Single Model Generator' => null
-]) ?>
+]]); ?>
 <div class="row">
     <div class="col-md-6 col-md-offset-3">
         <div class="row">
