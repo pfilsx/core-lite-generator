@@ -1,7 +1,7 @@
 <?php
 use core\helpers\Url;
 ?>
-<?= \core\widgets\breadcrumbs\Breadcrumbs::widget([
+<?= \core\bootstrap\Breadcrumbs::widget([
         'Core Lite Generator' => Url::toAction('index'),
         'Single Model Generator' => null
 ]) ?>

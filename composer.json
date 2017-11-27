@@ -15,12 +15,17 @@
     }
   ],
   "require": {
-    "pfilsx/core-lite": "dev-develop as 1.5"
+    "pfilsx/core-lite": "dev-develop as 1.5",
+    "pfilsx/core-lite-bootstrap3": "1.5"
   },
   "repositories": [
     {
       "type": "vcs",
       "url": "https://github.com/pfilsx/core-lite"
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/pfilsx/core-lite-bootstrap3"
     }
   ],
   "autoload": {
