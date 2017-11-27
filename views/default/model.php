@@ -15,7 +15,7 @@ use core\base\App;
 <div class="row">
     <?php if (($message = App::$instance->session->getFlash('message')) !== null) { ?>
         <div class="alert alert-success" role="alert"><?= $message ?></div>
-    <?php } elseif (($message = App::$instance->session->getFlash('error-message')) !== null) { ?>
+    <?php } elseif (($message = App::$instance->session->getFlash('error_message')) !== null) { ?>
         <div class="alert alert-danger" role="alert"><?= $message ?></div>
     <?php } ?>
 </div>
