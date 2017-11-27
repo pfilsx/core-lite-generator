@@ -1,16 +1,26 @@
 <?php
 use core\helpers\Url;
+use core\base\App;
 ?>
-<?= \core\bootstrap\Breadcrumbs::widget(['items' => [
-        'Core Lite Generator' => Url::toAction('index'),
-        'Single Model Generator' => null
-]]); ?>
 <div class="row">
-    <div class="col-md-6 col-md-offset-3">
-        <div class="row">
-            <h1>Model generator</h1>
-            <p>This generator generates an ActiveModel class for the specific database table</p>
-        </div>
+    <?= \core\bootstrap\Breadcrumbs::widget(['items' => [
+        'Core-Lite Generator' => Url::toAction('index'),
+        'Single Model Generator' => null
+    ]]); ?>
+</div>
+<div class="row">
+    <h1>Model generator</h1>
+    <p>This generator generates an ActiveModel class for the specific database table</p>
+</div>
+<div class="row">
+    <?php if (App::$instance->session->hasFlash('message')) { ?>
+        <div class="alert alert-success" role="alert"><?= App::$instance->session->getFlash('message');?></div>
+    <?php } elseif (App::$instance->session->hasFlash('error_message')) { ?>
+        <div class="alert alert-danger" role="alert"><?= App::$instance->session->getFlash('error-message');?></div>
+    <?php } ?>
+</div>
+<div class="row">
+    <div class="col-md-12">
         <?php $form = \core\widgets\activeform\ActiveForm::begin([
             'method' => 'post',
             'ajaxValidation' => true,

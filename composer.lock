@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "5736e849c04ce00569e8b336328c9667",
+    "content-hash": "fd8bf4cd522bb2d9f2a9fda26fcac7de",
     "packages": [
         {
             "name": "pfilsx/core-lite",
@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pfilsx/core-lite.git",
-                "reference": "c65f1343593d5535c8c2afa4664bb3a2af5bbc07"
+                "reference": "27f48dbbc423531f1ec0c30600877aa0cd24b615"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pfilsx/core-lite/zipball/c65f1343593d5535c8c2afa4664bb3a2af5bbc07",
-                "reference": "c65f1343593d5535c8c2afa4664bb3a2af5bbc07",
+                "url": "https://api.github.com/repos/pfilsx/core-lite/zipball/27f48dbbc423531f1ec0c30600877aa0cd24b615",
+                "reference": "27f48dbbc423531f1ec0c30600877aa0cd24b615",
                 "shasum": ""
             },
             "require": {
@@ -56,7 +56,50 @@
                 "issues": "https://github.com/pfilsx/core-lite/issues?state=open",
                 "source": "https://github.com/pfilsx/core-lite"
             },
-            "time": "2017-11-25T14:18:28+00:00"
+            "time": "2017-11-27T09:44:37+00:00"
+        },
+        {
+            "name": "pfilsx/core-lite-bootstrap3",
+            "version": "1.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pfilsx/core-lite-bootstrap3.git",
+                "reference": "2cd8a9829fee25c2c54accda9e472e5e89d4c73d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pfilsx/core-lite-bootstrap3/zipball/2cd8a9829fee25c2c54accda9e472e5e89d4c73d",
+                "reference": "2cd8a9829fee25c2c54accda9e472e5e89d4c73d",
+                "shasum": ""
+            },
+            "require": {
+                "pfilsx/core-lite": ">= 1.5"
+            },
+            "type": "core-lite-extension",
+            "autoload": {
+                "psr-4": {
+                    "core\\bootstrap\\": ""
+                }
+            },
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Pavel Filimonov",
+                    "email": "pfilsx@gmail.com"
+                }
+            ],
+            "description": "The Twitter Bootstrap 3 extension for the Core-Lite framework",
+            "keywords": [
+                "bootstrap",
+                "core-lite"
+            ],
+            "support": {
+                "issues": "https://github.com/pfilsx/core-lite-bootstap3/issues",
+                "source": "https://github.com/pfilsx/core-lite-bootstap3"
+            },
+            "time": "2017-11-24T13:44:12+00:00"
         }
     ],
     "packages-dev": [],

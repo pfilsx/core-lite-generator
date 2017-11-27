@@ -36,12 +36,12 @@ class DefaultController extends Controller
                     return $model->ajaxValidate();
                 }
                 if (($result = $model->generateModel()) === true){
-                    return 'good';
+                    App::$instance->session->addFlash('message', "Model {$model->model_name} successfully generated");
                 }
-                return 'bad';
+                App::$instance->session
+                    ->addFlash('error_message', "An error occurred while creating {$model->model_name}: {$result}");
             }
         }
-
         $tables = App::$instance->db->getSchema()->getTableNames();
         if (($idx = array_search('migrations', $tables)) !== false){
             unset($tables[$idx]);

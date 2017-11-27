@@ -45,31 +45,28 @@ class ModelForm extends Model
         if (($result = $this->validate()) !== true){
             return $result;
         }
-        if (trim($this->table_name) !== '*'){
-            $props = App::$instance->db->getTableSchema($this->table_name)->columns;
-            $labels = [];
-            foreach ($props as $prop){
-                $labels[$prop->name] = $this->model_labels ? $prop->comment: '';
-            }
-            $result = View::renderPartial('@core-gen/views/templates/model.php',[
-                'model' => $this,
-                'props' => $props,
-                'labels' => $labels
-            ]);
-            if ($result == null){
-                return 'Unable to generate model class';
-            }
-            $path = FileHelper::normalizePath(Core::getAlias($this->models_path));
-            if (FileHelper::createDirectory($path, 0777)){
-                $fileName = $path.DIRECTORY_SEPARATOR.$this->model_name.'.php';
-                if (@file_put_contents($fileName, $result) !== false){
-                    chmod($fileName, 0777);
-                    return true;
-                }
-                return 'Unable to save model file. Permission denied.';
-            }
-            return 'Unable to create models directory. Permission denied.';
+        $props = App::$instance->db->getTableSchema($this->table_name)->columns;
+        $labels = [];
+        foreach ($props as $prop){
+            $labels[$prop->name] = $this->model_labels ? $prop->comment: '';
         }
-        return null;
+        $result = View::renderPartial('@core-gen/views/templates/model.php',[
+            'model' => $this,
+            'props' => $props,
+            'labels' => $labels
+        ]);
+        if ($result == null){
+            return 'Unable to generate model class';
+        }
+        $path = FileHelper::normalizePath(Core::getAlias($this->models_path));
+        if (FileHelper::createDirectory($path, 0777)){
+            $fileName = $path.DIRECTORY_SEPARATOR.$this->model_name.'.php';
+            if (@file_put_contents($fileName, $result) !== false){
+                chmod($fileName, 0777);
+                return true;
+            }
+            return 'Unable to save model file. Permission denied.';
+        }
+        return 'Unable to create models directory. Permission denied.';
     }
 }

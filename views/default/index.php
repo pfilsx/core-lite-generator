@@ -1,7 +1,16 @@
 <?php
 use core\helpers\Url;
 ?>
-
+<div class="row">
+    <?= \core\bootstrap\Breadcrumbs::widget(['items' => [
+        'Core-Lite Generator' => null
+    ]]); ?>
+</div>
+<div class="row">
+    <div class="page-header">
+        <h1>Welcome to Core-Lite code generator</h1>
+    </div>
+</div>
 <div class="row">
     <div class="col-sm-6 col-md-4">
         <div class="thumbnail">
@@ -31,7 +40,7 @@ use core\helpers\Url;
                 <h3>CRUD generator</h3>
                 <p>This generator generates a controller and views that implement CRUD(Create, Read, Update, Delete) for a specific Model.</p>
                 <p>
-                    <a href="<?= Url::toAction('multiple-model-generator')?>" class="btn btn-primary" role="button">Start >></a>
+                    <a href="<?= Url::toAction('crud-generator')?>" class="btn btn-primary" role="button">Start >></a>
                 </p>
             </div>
         </div>
