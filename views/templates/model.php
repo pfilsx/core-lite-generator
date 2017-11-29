@@ -28,7 +28,7 @@ class <?= $model->model_name  ?> extends <?= $model->model_base_class."\n" ?>
     */
     public function rules()
     {
-    return [<?= empty($rules) ? '' : ("\n            " . implode(",\n            ", $rules) . ",\n        ") ?>];
+        return [<?= empty($rules) ? '' : ("\n            " . implode(",\n            ", $rules) . ",\n        ") ?>];
     }
     /**
     * @inheritdoc

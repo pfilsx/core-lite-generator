@@ -37,6 +37,8 @@ class DefaultController extends Controller
                 }
                 if (($result = $model->generateModel()) === true){
                     App::$instance->session->setFlash('message', "Model {$model->model_name} successfully generated");
+                    $model->model_name = null;
+                    $model->table_name = null;
                 } else {
                     App::$instance->session
                         ->setFlash('error_message', "An error occurred while creating {$model->model_name}: {$result}");
