@@ -8,6 +8,10 @@ use Core;
 use core\base\App;
 use core\components\Model;
 use core\components\View;
+use core\db\ColumnSchema;
+use core\db\Connection;
+use core\db\Schema;
+use core\db\TableSchema;
 use core\helpers\FileHelper;
 
 /**
@@ -50,10 +54,13 @@ class ModelForm extends Model
         foreach ($props as $prop){
             $labels[$prop->name] = $this->model_labels ? $prop->comment: '';
         }
+        $rules = $this->generateRules($props);
+
         $result = View::renderPartial('@core-gen/views/templates/model.php',[
             'model' => $this,
             'props' => $props,
-            'labels' => $labels
+            'labels' => $labels,
+            'rules' => $rules
         ]);
         if ($result == null){
             return 'Unable to generate model class';
@@ -68,5 +75,59 @@ class ModelForm extends Model
             return 'Unable to save model file. Permission denied.';
         }
         return 'Unable to create models directory. Permission denied.';
+    }
+
+    /**
+     * @param ColumnSchema[] $columns
+     * @return array
+     */
+    private function generateRules($columns)
+    {
+        $types = [];
+        $lengths = [];
+        foreach ($columns as $column) {
+            if ($column->autoIncrement) {
+                continue;
+            }
+            if (!$column->allowNull) {
+                $types['required'][] = $column->name;
+            }
+            switch ($column->type) {
+                case Schema::TYPE_SMALLINT:
+                case Schema::TYPE_INTEGER:
+                case Schema::TYPE_BIGINT:
+                    $types['integer'][] = $column->name;
+                    break;
+                case Schema::TYPE_BOOLEAN:
+                    $types['boolean'][] = $column->name;
+                    break;
+                case Schema::TYPE_FLOAT:
+                case 'double':
+                case Schema::TYPE_DECIMAL:
+                case Schema::TYPE_MONEY:
+                    $types['number'][] = $column->name;
+                    break;
+                case Schema::TYPE_DATE:
+                case Schema::TYPE_TIME:
+                case Schema::TYPE_DATETIME:
+                case Schema::TYPE_TIMESTAMP:
+                    $types['safe'][] = $column->name;
+                    break;
+                default:
+                    if ($column->size > 0) {
+                        $lengths[$column->size][] = $column->name;
+                    } else {
+                        $types['string'][] = $column->name;
+                    }
+            }
+        }
+        $rules = [];
+        foreach ($types as $type => $columns) {
+            $rules[] = "[['" . implode("', '", $columns) . "'], '$type']";
+        }
+        foreach ($lengths as $length => $columns) {
+            $rules[] = "[['" . implode("', '", $columns) . "'], 'string', 'max' => $length]";
+        }
+        return $rules;
     }
 }

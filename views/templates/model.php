@@ -22,6 +22,14 @@ class <?= $model->model_name  ?> extends <?= $model->model_base_class."\n" ?>
     public static function schemaTableName(){
         return '<?= $model->table_name ?>';
     }
+
+    /**
+    * @inheritdoc
+    */
+    public function rules()
+    {
+    return [<?= empty($rules) ? '' : ("\n            " . implode(",\n            ", $rules) . ",\n        ") ?>];
+    }
     /**
     * @inheritdoc
     */
