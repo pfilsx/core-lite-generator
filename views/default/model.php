@@ -21,7 +21,7 @@ use core\base\App;
 </div>
 <div class="row">
     <div class="col-md-12">
-        <?php $form = \core\widgets\activeform\ActiveForm::begin([
+        <?php $form = \core\bootstrap\ActiveForm::begin([
             'method' => 'post',
             'ajaxValidation' => true,
             'options' => [
@@ -38,47 +38,32 @@ use core\base\App;
             </select>
         </div>
         <div class="info-block">
-            <div class="form-group">
                 <?= $form->field($model, 'table_name')->input('text', [
                     'required' => true,
                     'disabled' => true,
-                    'readonly' => true,
-                    'class' => 'form-control'
+                    'readonly' => true
                 ]); ?>
-            </div>
-            <div class="form-group">
+
                 <?= $form->field($model, 'model_name')->input('text', [
                     'required' => true,
-                    'disabled' => true,
-                    'class' => 'form-control'
+                    'disabled' => true
                 ]); ?>
-            </div>
-            <div class="form-group">
+
                 <?= $form->field($model, 'model_namespace')->input('text', [
                     'required' => true,
-                    'disabled' => true,
-                    'class' => 'form-control'
+                    'disabled' => true
                 ]); ?>
-            </div>
-            <div class="form-group">
                 <?= $form->field($model, 'model_base_class')->input('text', [
                     'required' => true,
-                    'disabled' => true,
-                    'class' => 'form-control'
+                    'disabled' => true
                 ]); ?>
-            </div>
-            <div class="form-group">
                 <?= $form->field($model, 'models_path')->input('text', [
                     'required' => true,
                     'disabled' => true,
-                    'class' => 'form-control'
                 ]); ?>
-            </div>
-            <div class="form-group checkbox">
                 <?= $form->field($model, 'model_labels')->input('checkbox', [
                     'disabled' => true,
                 ]); ?>
-            </div>
             <div class="form-group">
                 <input type="submit" class="btn btn-success" value="Generate" disabled>
             </div>

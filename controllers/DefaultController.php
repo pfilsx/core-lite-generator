@@ -7,6 +7,7 @@ namespace core\generator\controllers;
 use core\generator\models\ModelForm;
 use core\base\App;
 use core\components\Controller;
+use core\generator\models\MultipleModelForm;
 
 class DefaultController extends Controller
 {
@@ -53,7 +54,12 @@ class DefaultController extends Controller
     }
 
     public function actionMultipleModelGenerator(){
-        return 'Not implemented yet';
+        $model = new MultipleModelForm();
+        $tables = App::$instance->db->getSchema()->getTableNames();
+        if (($idx = array_search('migrations', $tables)) !== false){
+            unset($tables[$idx]);
+        }
+        return $this->render('multiple_model', ['tables' => $tables, 'model' => $model]);
     }
 
     public function actionCrudGenerator(){
