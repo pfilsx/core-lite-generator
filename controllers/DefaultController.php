@@ -55,6 +55,16 @@ class DefaultController extends Controller
 
     public function actionMultipleModelGenerator(){
         $model = new MultipleModelForm();
+        if (App::$instance->request->isPost){
+            $post = App::$instance->request->post;
+            if ($model->load($post)){
+                if (isset($post['validate'])){
+                    return $model->ajaxValidate();
+                }
+                return $model->generate();
+            }
+        }
+
         $tables = App::$instance->db->getSchema()->getTableNames();
         if (($idx = array_search('migrations', $tables)) !== false){
             unset($tables[$idx]);

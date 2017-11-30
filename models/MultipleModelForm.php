@@ -4,8 +4,15 @@
 namespace core\generator\models;
 
 
+use core\base\App;
 use core\components\Model;
 
+/**
+ * @property mixed|null models_namespace
+ * @property mixed|null models_base_class
+ * @property mixed|null models_path
+ * @property mixed|null models_labels
+ */
 class MultipleModelForm extends Model
 {
     public $models = [];
@@ -16,6 +23,12 @@ class MultipleModelForm extends Model
         ['models_labels', 'bool']
     ];
 
+    public function afterLoad($data)
+    {
+        if (isset(App::$instance->request->post['models'])){
+            $this->models = App::$instance->request->post['models'];
+        }
+    }
 
 
     public function attributeLabels()
@@ -26,5 +39,26 @@ class MultipleModelForm extends Model
             'models_path' => 'Models Directory',
             'models_labels' => 'Generate labels from comments'
         ];
+    }
+
+    public function generate(){
+        if (!$this->validate()){
+            return json_encode(['success' => false, 'message' => 'One of attributes don\'t pass validation']);
+        }
+        foreach ($this->models as $modelObj){
+            $model = new ModelForm([
+                'table_name' => $modelObj['table_name'],
+                'model_name' => $modelObj['model_name'],
+                'model_namespace' => $this->models_namespace,
+                'model_base_class' => $this->models_base_class,
+                'models_path' => $this->models_path,
+                'model_labels' => $this->models_labels
+            ]);
+            $result = $model->generateModel();
+            if ($result !== true){
+                return json_encode(['success' => false, 'message' => $result]);
+            }
+        }
+        return json_encode(['success' => true, 'message' => 'Models successfully generated.']);
     }
 }
