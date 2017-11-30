@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "fd8bf4cd522bb2d9f2a9fda26fcac7de",
+    "content-hash": "e6c5a7cb11519e64155fb69ac828b881",
     "packages": [
         {
             "name": "pfilsx/core-lite",
-            "version": "dev-develop",
+            "version": "1.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pfilsx/core-lite.git",
-                "reference": "27f48dbbc423531f1ec0c30600877aa0cd24b615"
+                "reference": "e6ec92883d1add37ef33142088454889e79bb566"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pfilsx/core-lite/zipball/27f48dbbc423531f1ec0c30600877aa0cd24b615",
-                "reference": "27f48dbbc423531f1ec0c30600877aa0cd24b615",
+                "url": "https://api.github.com/repos/pfilsx/core-lite/zipball/e6ec92883d1add37ef33142088454889e79bb566",
+                "reference": "e6ec92883d1add37ef33142088454889e79bb566",
                 "shasum": ""
             },
             "require": {
@@ -56,7 +56,7 @@
                 "issues": "https://github.com/pfilsx/core-lite/issues?state=open",
                 "source": "https://github.com/pfilsx/core-lite"
             },
-            "time": "2017-11-27T09:44:37+00:00"
+            "time": "2017-11-24T13:11:09+00:00"
         },
         {
             "name": "pfilsx/core-lite-bootstrap3",
@@ -103,18 +103,9 @@
         }
     ],
     "packages-dev": [],
-    "aliases": [
-        {
-            "alias": "1.5",
-            "alias_normalized": "1.5.0.0",
-            "version": "dev-develop",
-            "package": "pfilsx/core-lite"
-        }
-    ],
+    "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "pfilsx/core-lite": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],

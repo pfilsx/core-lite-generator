@@ -2,16 +2,16 @@ var table_name = $('[data-attribute=table_name]');
 var model_name = $('[data-attribute=model_name]');
 
 $('#table_name').on('change', function(){
-   var obj = $(this);
-   var infoBlock = $('.info-block');
-   if (obj.val().trim().length < 1){
-       infoBlock.find('input').prop('disabled', true);
-       table_name.val('');
-       model_name.val('');
-       return;
-   }
-   var tableName = obj.val().trim();
-   table_name.val(tableName).blur();
+    var obj = $(this);
+    var infoBlock = $('.info-block');
+    if (obj.val().trim().length < 1){
+        infoBlock.find('input').prop('disabled', true);
+        table_name.val('');
+        model_name.val('');
+        return;
+    }
+    var tableName = obj.val().trim();
+    table_name.val(tableName).blur();
     var modelClass = '';
     $.each(tableName.split('_'), function() {
         if(this.length>0)
@@ -30,15 +30,21 @@ model_name.on('blur', function(){
 });
 
 $('.multiple-generate').on('click', function(){
-   var form = $(this).closest('.crl-active-form');
-   if (form.find('.has-error').length > 0){
-       return;
-   }
-   var data ={};
-   form.find('input[type=text]').not('.model_name').each(function(idx, input){
-        data[$(input).attr('name')] = $(input).val();
-   });
-   console.log(data);
+    var form = $(this).closest('.crl-active-form');
+    if (form.find('.has-error').length > 0){
+        return;
+    }
+    var data = form.serializeArray();
+    data['models'] = [];
+    form.find('.table_checkbox:checked').each(function(idx, check){
+        if ($(check).is(':checked')){
+            var obj = {
+                table_name: $(check).attr('data-table')
+            };
+            var input = $(check).closest('.form-group').find('.model_name');
+        }
+    });
+    console.log(data);
 });
 $('.table_checkbox').on('click', function(){
     var input = $(this).closest('.form-group').find('.model_name');
@@ -47,4 +53,7 @@ $('.table_checkbox').on('click', function(){
     } else {
         input.prop('disabled', true);
     }
+});
+$('.model_name').on('blur', function(){
+    $(this).validate('mask', {pattern: '/^\\w+$/'});
 });
