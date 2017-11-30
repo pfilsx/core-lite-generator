@@ -62,6 +62,7 @@ $('.multiple-generate').on('click', function () {
                 infoBlock.removeClass('alert-success').addClass('alert-danger').text(data.message).show();
             }
             btn.prop('disabled', false);
+            window.scrollTo(0, 0);
         }
     });
 });
