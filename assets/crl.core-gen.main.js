@@ -28,3 +28,23 @@ model_name.on('blur', function(){
         $('input[type=submit]').prop('disabled', true);
     }
 });
+
+$('.multiple-generate').on('click', function(){
+   var form = $(this).closest('.crl-active-form');
+   if (form.find('.has-error').length > 0){
+       return;
+   }
+   var data ={};
+   form.find('input[type=text]').not('.model_name').each(function(idx, input){
+        data[$(input).attr('name')] = $(input).val();
+   });
+   console.log(data);
+});
+$('.table_checkbox').on('click', function(){
+    var input = $(this).closest('.form-group').find('.model_name');
+    if ($(this).is(':checked')){
+        input.prop('disabled', false);
+    } else {
+        input.prop('disabled', true);
+    }
+});

@@ -32,21 +32,29 @@ use core\base\App;
         <?= $form->field($model, 'models_path')->input('text'); ?>
         <?= $form->field($model, 'models_base_class')->input('text'); ?>
         <?= $form->field($model, 'models_labels')->input('checkbox'); ?>
-
-        <?php foreach ($tables as $table) { ?>
-            <div class="form-group">
-                <div class="col-md-6 checkbox">
-                    <label><input type="checkbox" class="table_checkbox" data-table="<?= $table ?>"><?= $table ?></label>
-                </div>
-                <div class="col-md-6 hidden_part">
-                    <label class="control-label col-md-2">Model Name</label>
-                    <div class="col-md-10">
-                        <input type="text" class="form-control model_name" value="<?= ucfirst(str_replace('_', '', $table)); ?>" />
+        <div class="panel panel-default">
+            <div class="panel-heading">Models</div>
+            <div class="panel-body">
+                <?php foreach ($tables as $table) { ?>
+                    <div class="form-group">
+                        <div class="col-md-3 checkbox">
+                            <label><input type="checkbox" class="table_checkbox" checked data-table="<?= $table ?>"><?= $table ?></label>
+                        </div>
+                        <div class="col-md-9 hidden_part">
+                            <label class="control-label col-md-2">Model Name</label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control model_name"
+                                       value="<?= str_replace(' ', '', ucwords(str_replace('_', ' ', $table))); ?>" />
+                            </div>
+                        </div>
                     </div>
-                </div>
+                <?php } ?>
             </div>
-        <?php } ?>
+        </div>
 
+        <div class="form-group">
+            <input type="button" class="btn btn-success multiple-generate" value="Generate">
+        </div>
         <?php \core\bootstrap\ActiveForm::end() ?>
     </div>
 </div>

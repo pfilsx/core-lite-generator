@@ -16,7 +16,7 @@ class MultipleModelForm extends Model
         ['models_labels', 'bool']
     ];
 
-    
+
 
     public function attributeLabels()
     {
