@@ -55,6 +55,9 @@ class DefaultController extends Controller
 
     public function actionMultipleModelGenerator(){
         $model = new MultipleModelForm();
+        $model->models_namespace = 'app\models';
+        $model->models_base_class = 'core\components\ActiveModel';
+        $model->models_path = '@app'.DIRECTORY_SEPARATOR.'models';
         if (App::$instance->request->isPost){
             $post = App::$instance->request->post;
             if ($model->load($post)){
