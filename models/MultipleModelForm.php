@@ -26,7 +26,7 @@ class MultipleModelForm extends Model
     public function afterLoad($data)
     {
         if (isset(App::$instance->request->post['models'])){
-            $this->models = App::$instance->request->post['models'];
+            $this->models = json_decode(App::$instance->request->post['models'], true);
         }
     }
 

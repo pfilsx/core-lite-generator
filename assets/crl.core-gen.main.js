@@ -37,16 +37,18 @@ $('.multiple-generate').on('click', function () {
     }
     btn.prop('disabled', true);
     var data = form.serializeArray();
-    data['models'] = [];
+    var models = [];
     form.find('.table_checkbox:checked').each(function (idx, check) {
         if ($(check).is(':checked')) {
             var obj = {
                 table_name: $(check).attr('data-table'),
                 model_name: $(check).closest('.form-group').find('.model_name').val()
             };
-            data['models'].push(obj);
+            models.push(obj);
         }
     });
+    data.push({name: 'models', value: JSON.stringify(models)});
+    console.log(data);
     $.ajax({
         method: 'post',
         url: '',
@@ -55,9 +57,9 @@ $('.multiple-generate').on('click', function () {
         success: function (data) {
             var infoBlock = $('.alert');
             if (data.success) {
-                infoBlock.removeClass('alert-danger').addClass('alert-success').text(data.message);
+                infoBlock.removeClass('alert-danger').addClass('alert-success').text(data.message).show();
             } else {
-                infoBlock.removeClass('alert-success').addClass('alert-danger').text(data.message);
+                infoBlock.removeClass('alert-success').addClass('alert-danger').text(data.message).show();
             }
             btn.prop('disabled', false);
         }
