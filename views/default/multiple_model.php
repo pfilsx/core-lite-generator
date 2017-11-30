@@ -13,11 +13,9 @@ use core\base\App;
     <p>This generator generates an ActiveModel classes for the specific database tables</p>
 </div>
 <div class="row">
-    <?php if (($message = App::$instance->session->getFlash('message')) !== null) { ?>
-        <div class="alert alert-success" role="alert"><?= $message ?></div>
-    <?php } elseif (($message = App::$instance->session->getFlash('error_message')) !== null) { ?>
-        <div class="alert alert-danger" role="alert"><?= $message ?></div>
-    <?php } ?>
+    <div class="row">
+        <div class="alert" role="alert" style="display: none;"></div>
+    </div>
 </div>
 <div class="row">
     <div class="col-md-12">
