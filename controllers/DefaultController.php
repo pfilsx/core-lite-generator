@@ -23,7 +23,7 @@ class DefaultController extends Controller
 
     public function actionIndex()
     {
-        $this->layout = 'index';
+        $this->layout = '@core-gen/layouts/index';
         return $this->render('index');
     }
 
