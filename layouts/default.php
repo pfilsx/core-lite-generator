@@ -1,5 +1,6 @@
 <?php
 
+use core\helpers\Url;
 
 \core\generator\CoreGenAssets::register();
 ?>
@@ -19,8 +20,34 @@
         <a class="navbar-brand" href="#">Core-Lite Generator</a>
     </div>
 </header>
-    <div class="container">
-        <?= $this->getViewContent(); ?>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="list-group">
+                    <a href="<?= Url::toAction('single-model-generator'); ?>" class="list-group-item">
+                        Single Model Generator
+                    </a>
+                    <a href="<?= Url::toAction('multiple-model-generator'); ?>" class="list-group-item">
+                        Multiple Model Generator
+                    </a>
+                    <a href="<?= Url::toAction('crud-generator'); ?>" class="list-group-item">
+                        CRUD Generator
+                    </a>
+                    <a href="<?= Url::toAction('form-generator'); ?>" class="list-group-item">
+                        Form Generator
+                    </a>
+                    <a href="<?= Url::toAction('controller-generator'); ?>" class="list-group-item">
+                        Controller Generator
+                    </a>
+                    <a href="<?= Url::toAction('module-generator'); ?>" class="list-group-item">
+                        Module Generator
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <?= $this->getViewContent(); ?>
+            </div>
+        </div>
     </div>
 
 <?= $this->endBody() ?>

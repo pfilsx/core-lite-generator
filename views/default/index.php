@@ -37,6 +37,17 @@ use core\helpers\Url;
     <div class="col-sm-6 col-md-4">
         <div class="thumbnail">
             <div class="caption">
+                <h3>CRUD generator</h3>
+                <p>This generator generates a controller and views that implement CRUD(Create, Read, Update, Delete) for a specific Model.</p>
+                <p>
+                    <a href="<?= Url::toAction('crud-generator')?>" class="btn btn-primary" role="button">Start >></a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+            <div class="caption">
                 <h3>Form generator</h3>
                 <p>This generator generates a form view for a specific Model.</p>
                 <p>
@@ -48,10 +59,21 @@ use core\helpers\Url;
     <div class="col-sm-6 col-md-4">
         <div class="thumbnail">
             <div class="caption">
-                <h3>CRUD generator</h3>
-                <p>This generator generates a controller and views that implement CRUD(Create, Read, Update, Delete) for a specific Model.</p>
+                <h3>Controller generator</h3>
+                <p>This generator generates a controller template.</p>
                 <p>
-                    <a href="<?= Url::toAction('crud-generator')?>" class="btn btn-primary" role="button">Start >></a>
+                    <a href="<?= Url::toAction('controller-generator')?>" class="btn btn-primary" role="button">Start >></a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+            <div class="caption">
+                <h3>Module generator</h3>
+                <p>This generator generates a module template.</p>
+                <p>
+                    <a href="<?= Url::toAction('module-generator')?>" class="btn btn-primary" role="button">Start >></a>
                 </p>
             </div>
         </div>

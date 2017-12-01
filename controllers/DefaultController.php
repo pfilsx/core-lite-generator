@@ -23,6 +23,7 @@ class DefaultController extends Controller
 
     public function actionIndex()
     {
+        $this->layout = 'index';
         return $this->render('index');
     }
 
@@ -97,7 +98,13 @@ class DefaultController extends Controller
             }
         }
         return $this->render('form', ['model' => $model]);
+    }
+    public function actionControllerGenerator(){
+        return 'Not implemented yet';
+    }
 
+    public function actionModuleGenerator(){
+        return 'Not implemented yet';
     }
 
     public function actionCrudGenerator(){
