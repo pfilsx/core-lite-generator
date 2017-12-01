@@ -13,9 +13,7 @@ use core\base\App;
     <p>This generator generates an ActiveModel classes for the specific database tables</p>
 </div>
 <div class="row">
-    <div class="row">
-        <div class="alert" role="alert" style="display: none;"></div>
-    </div>
+    <div class="alert" role="alert" style="display: none;"></div>
 </div>
 <div class="row">
     <div class="col-md-12">
