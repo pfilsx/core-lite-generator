@@ -45,7 +45,7 @@ class ModelForm extends Model
         ];
     }
 
-    public function generateModel(){
+    public function generate(){
         if (($result = $this->validate()) !== true){
             return $result;
         }

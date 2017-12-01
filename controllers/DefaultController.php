@@ -37,7 +37,7 @@ class DefaultController extends Controller
                 if (isset(App::$instance->request->post['validation'])){
                     return $model->ajaxValidate();
                 }
-                if (($result = $model->generateModel()) === true){
+                if (($result = $model->generate()) === true){
                     App::$instance->session->setFlash('message', "Model {$model->model_name} successfully generated");
                     $model->model_name = null;
                     $model->table_name = null;
@@ -82,6 +82,20 @@ class DefaultController extends Controller
             'view_name' => 'form',
             'view_path' => '@app'.DIRECTORY_SEPARATOR.'views'
         ]);
+        if (App::$instance->request->isPost){
+            if ($model->load(App::$instance->request->post)){
+                if (App::$instance->request->isAjax){
+                    return $model->ajaxValidate();
+                }
+                if (($result = $model->generate()) === true){
+                    App::$instance->session->setFlash('message', "Form {$model->view_name} successfully generated");
+                    $model->model_class = null;
+                } else {
+                    App::$instance->session
+                        ->setFlash('error_message', "An error occurred while creating {$model->view_name}: {$result}");
+                }
+            }
+        }
         return $this->render('form', ['model' => $model]);
 
     }

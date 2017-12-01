@@ -54,7 +54,7 @@ class MultipleModelForm extends Model
                 'models_path' => $this->models_path,
                 'model_labels' => $this->models_labels
             ]);
-            $result = $model->generateModel();
+            $result = $model->generate();
             if ($result !== true){
                 return json_encode(['success' => false, 'message' => $result]);
             }
