@@ -44,6 +44,6 @@ use core\base\App;
             <div class="form-group">
                 <input type="submit" class="btn btn-success" value="Generate">
             </div>
-        <?php \core\widgets\activeform\ActiveForm::end(); ?>
+        <?php \core\bootstrap\ActiveForm::end(); ?>
     </div>
 </div>

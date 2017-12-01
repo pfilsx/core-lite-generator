@@ -68,6 +68,6 @@ use core\base\App;
                 <input type="submit" class="btn btn-success" value="Generate" disabled>
             </div>
         </div>
-        <?php \core\widgets\activeform\ActiveForm::end(); ?>
+        <?php \core\bootstrap\ActiveForm::end(); ?>
     </div>
 </div>
