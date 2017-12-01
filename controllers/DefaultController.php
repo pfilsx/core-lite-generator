@@ -29,7 +29,7 @@ class DefaultController extends Controller
     public function actionSingleModelGenerator(){
         $model = new ModelForm([
             'model_namespace' => 'app\models',
-            'model_base_class' => 'core\components\ActiveModel',
+            'model_base_class' => '\core\components\ActiveModel',
             'models_path' => '@app'.DIRECTORY_SEPARATOR.'models'
         ]);
         if (App::$instance->request->isPost){
@@ -57,7 +57,7 @@ class DefaultController extends Controller
     public function actionMultipleModelGenerator(){
         $model = new MultipleModelForm([
             'models_namespace' => 'app\models',
-            'models_base_class' => 'core\components\ActiveModel',
+            'models_base_class' => '\core\components\ActiveModel',
             'models_path' => '@app'.DIRECTORY_SEPARATOR.'models'
         ]);
         if (App::$instance->request->isPost){

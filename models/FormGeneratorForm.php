@@ -43,7 +43,7 @@ class FormGeneratorForm extends Model
     }
 
     public function generate(){
-        if ($this->validate()){
+        if (!$this->validate()){
             return '';
         }
         if (!$this->createModel()){
@@ -83,7 +83,7 @@ class FormGeneratorForm extends Model
 
     protected function createModel(){
         $className = $this->model_class;
-        if (class_exists($className) || is_subclass_of($className, 'core\components\Model')){
+        if (!class_exists($className) || !is_subclass_of($className, '\core\components\Model')){
             return false;
         }
         $this->_model = new $className();
