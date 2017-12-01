@@ -4,6 +4,7 @@
 namespace core\generator\controllers;
 
 
+use core\generator\models\FormGeneratorForm;
 use core\generator\models\ModelForm;
 use core\base\App;
 use core\components\Controller;
@@ -26,11 +27,11 @@ class DefaultController extends Controller
     }
 
     public function actionSingleModelGenerator(){
-        $model = new ModelForm();
-        $model->model_namespace = 'app\models';
-        $model->model_base_class = 'core\components\ActiveModel';
-        $model->models_path = '@app'.DIRECTORY_SEPARATOR.'models';
-
+        $model = new ModelForm([
+            'model_namespace' => 'app\models',
+            'model_base_class' => 'core\components\ActiveModel',
+            'models_path' => '@app'.DIRECTORY_SEPARATOR.'models'
+        ]);
         if (App::$instance->request->isPost){
             if ($model->load(App::$instance->request->post)){
                 if (isset(App::$instance->request->post['validation'])){
@@ -54,10 +55,11 @@ class DefaultController extends Controller
     }
 
     public function actionMultipleModelGenerator(){
-        $model = new MultipleModelForm();
-        $model->models_namespace = 'app\models';
-        $model->models_base_class = 'core\components\ActiveModel';
-        $model->models_path = '@app'.DIRECTORY_SEPARATOR.'models';
+        $model = new MultipleModelForm([
+            'models_namespace' => 'app\models',
+            'models_base_class' => 'core\components\ActiveModel',
+            'models_path' => '@app'.DIRECTORY_SEPARATOR.'models'
+        ]);
         if (App::$instance->request->isPost){
             $post = App::$instance->request->post;
             if ($model->load($post)){
@@ -73,6 +75,15 @@ class DefaultController extends Controller
             unset($tables[$idx]);
         }
         return $this->render('multiple_model', ['tables' => $tables, 'model' => $model]);
+    }
+
+    public function actionFormGenerator(){
+        $model = new FormGeneratorForm([
+            'view_name' => 'form',
+            'view_path' => '@app'.DIRECTORY_SEPARATOR.'views'
+        ]);
+        return $this->render('form', ['model' => $model]);
+
     }
 
     public function actionCrudGenerator(){
