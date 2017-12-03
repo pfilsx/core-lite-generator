@@ -29,6 +29,7 @@ class ModelForm extends Model
         [['table_name', 'model_name', 'model_namespace', 'model_base_class', 'models_path'], 'required'],
         [['table_name', 'model_name', 'model_namespace', 'model_base_class', 'models_path'], 'string'],
         ['model_name', 'mask', 'pattern' => '/^\w+$/', 'message' => 'Only word characters are allowed.'],
+        ['models_path', 'mask', 'pattern' => '/^@?\w+[\\-\\/\w]*$/', 'message' => 'Only word characters, dashes, slashes and @ are allowed.'],
         [['model_base_class', 'model_namespace'], 'mask', 'pattern' => '/^[\w\\\\]+$/', 'message' => 'Only word characters and backslashes are allowed.'],
         ['model_labels', 'bool']
     ];
