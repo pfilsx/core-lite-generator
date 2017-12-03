@@ -9,9 +9,7 @@ use core\base\App;
 use core\components\Model;
 use core\components\View;
 use core\db\ColumnSchema;
-use core\db\Connection;
 use core\db\Schema;
-use core\db\TableSchema;
 use core\helpers\FileHelper;
 
 /**
@@ -22,7 +20,7 @@ use core\helpers\FileHelper;
  * @property string model_name
  * @property bool model_labels
  */
-class ModelForm extends Model
+class ModelGeneratorForm extends Model implements IGenerator
 {
 
     public $rules = [

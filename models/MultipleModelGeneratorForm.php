@@ -13,7 +13,7 @@ use core\components\Model;
  * @property mixed|null models_path
  * @property mixed|null models_labels
  */
-class MultipleModelForm extends Model
+class MultipleModelGeneratorForm extends Model implements IGenerator
 {
     public $models = [];
 
@@ -43,10 +43,10 @@ class MultipleModelForm extends Model
 
     public function generate(){
         if (!$this->validate()){
-            return json_encode(['success' => false, 'message' => 'One of attributes don\'t pass validation']);
+            return json_encode(['success' => false, 'message' => 'One of the attributes failed validation']);
         }
         foreach ($this->models as $modelObj){
-            $model = new ModelForm([
+            $model = new ModelGeneratorForm([
                 'table_name' => $modelObj['table_name'],
                 'model_name' => $modelObj['model_name'],
                 'model_namespace' => $this->models_namespace,

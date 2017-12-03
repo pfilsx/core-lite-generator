@@ -20,7 +20,7 @@ use core\helpers\FileHelper;
  * @property string view_path
  * @property string use_bootstrap
  */
-class FormGeneratorForm extends Model
+class FormGeneratorForm extends Model implements IGenerator
 {
     protected $_model = null;
 

@@ -5,14 +5,13 @@ namespace core\generator\controllers;
 
 
 use core\generator\models\FormGeneratorForm;
-use core\generator\models\ModelForm;
+use core\generator\models\ModelGeneratorForm;
 use core\base\App;
 use core\components\Controller;
-use core\generator\models\MultipleModelForm;
+use core\generator\models\MultipleModelGeneratorForm;
 
 class DefaultController extends Controller
 {
-
     public $layout = 'default';
 
     public function beforeAction($action, $params = [])
@@ -28,7 +27,7 @@ class DefaultController extends Controller
     }
 
     public function actionSingleModelGenerator(){
-        $model = new ModelForm([
+        $model = new ModelGeneratorForm([
             'model_namespace' => 'app\models',
             'model_base_class' => '\core\components\ActiveModel',
             'models_path' => '@app'.DIRECTORY_SEPARATOR.'models'
@@ -56,7 +55,7 @@ class DefaultController extends Controller
     }
 
     public function actionMultipleModelGenerator(){
-        $model = new MultipleModelForm([
+        $model = new MultipleModelGeneratorForm([
             'models_namespace' => 'app\models',
             'models_base_class' => '\core\components\ActiveModel',
             'models_path' => '@app'.DIRECTORY_SEPARATOR.'models'
