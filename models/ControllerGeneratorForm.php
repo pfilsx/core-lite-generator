@@ -61,7 +61,10 @@ class ControllerGeneratorForm extends Model implements IGenerator
     public function getActions(){
         $actions = [];
         foreach (explode(',', $this->controller_actions) as $action) {
-            $actions[] = 'action'.ucfirst(str_replace(' ', '', $action));
+            $actionName = ucfirst(str_replace(' ', '', $action));
+            if (!empty($actionName)){
+                $actions[] = 'action'.$actionName;
+            }
         }
         return $actions;
     }

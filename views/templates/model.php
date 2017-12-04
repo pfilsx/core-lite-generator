@@ -19,7 +19,8 @@ class <?= $model->model_name  ?> extends <?= $model->model_base_class."\n" ?>
     /**
     * @inheritdoc
     */
-    public static function schemaTableName(){
+    public static function schemaTableName()
+    {
         return '<?= $model->table_name ?>';
     }
 
