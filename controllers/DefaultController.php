@@ -119,6 +119,7 @@ class DefaultController extends Controller
                 }
             }
         }
+        return $this->render('controller', ['model' => $model]);
     }
 
     public function actionModuleGenerator(){
