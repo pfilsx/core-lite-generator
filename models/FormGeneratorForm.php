@@ -44,7 +44,7 @@ class FormGeneratorForm extends Model implements IGenerator
 
     public function generate(){
         if (!$this->validate()){
-            return '';
+            return 'One of the attributes failed validation';
         }
         if (!$this->createModel()){
             return 'Incorrect model class name';

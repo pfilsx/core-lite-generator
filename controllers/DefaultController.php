@@ -4,6 +4,7 @@
 namespace core\generator\controllers;
 
 
+use core\generator\models\ControllerGeneratorForm;
 use core\generator\models\FormGeneratorForm;
 use core\generator\models\ModelGeneratorForm;
 use core\base\App;
@@ -99,7 +100,25 @@ class DefaultController extends Controller
         return $this->render('form', ['model' => $model]);
     }
     public function actionControllerGenerator(){
-        return 'Not implemented yet';
+        $model = new ControllerGeneratorForm([
+            'controller_namespace' => 'app\controllers',
+            'controller_path' => '@app'.DIRECTORY_SEPARATOR.'controllers',
+            'controller_actions' => 'index'
+        ]);
+        if (App::$instance->request->isPost){
+            if ($model->load(App::$instance->request->post)){
+                if (App::$instance->request->isAjax){
+                    return $model->ajaxValidate();
+                }
+                if (($result = $model->generate()) === true){
+                    App::$instance->session->setFlash('message', "Controller '{$model->controller_name}' successfully generated");
+                    $model->controller_name = null;
+                } else {
+                    App::$instance->session
+                        ->setFlash('error_message', "An error occurred while creating '{$model->controller_name}': {$result}");
+                }
+            }
+        }
     }
 
     public function actionModuleGenerator(){

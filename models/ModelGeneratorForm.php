@@ -45,8 +45,8 @@ class ModelGeneratorForm extends Model implements IGenerator
     }
 
     public function generate(){
-        if (($result = $this->validate()) !== true){
-            return $result;
+        if (!$this->validate()){
+            return 'One of the attributes failed validation';
         }
         $props = App::$instance->db->getTableSchema($this->table_name)->columns;
         $labels = [];
