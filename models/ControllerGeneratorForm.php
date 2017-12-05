@@ -38,7 +38,7 @@ class ControllerGeneratorForm extends Model implements IGenerator
         }
 
         if (@FileHelper::createDirectory($path, 0777)){
-            $fileName = $path.DIRECTORY_SEPARATOR.$this->controller_name.'.php';
+            $fileName = $path.DIRECTORY_SEPARATOR.$this->controller_name.'Controller.php';
             if (@file_put_contents($fileName, $result) !== false){
                 chmod($fileName, 0777);
                 return true;
