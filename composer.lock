@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "e6c5a7cb11519e64155fb69ac828b881",
+    "content-hash": "379d29ae4a2db1bc6338f25b53db767a",
     "packages": [
         {
             "name": "pfilsx/core-lite",
-            "version": "1.5",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pfilsx/core-lite.git",
-                "reference": "e6ec92883d1add37ef33142088454889e79bb566"
+                "reference": "12562cab870ac64ca6330252afe6cbeadcffd159"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pfilsx/core-lite/zipball/e6ec92883d1add37ef33142088454889e79bb566",
-                "reference": "e6ec92883d1add37ef33142088454889e79bb566",
+                "url": "https://api.github.com/repos/pfilsx/core-lite/zipball/12562cab870ac64ca6330252afe6cbeadcffd159",
+                "reference": "12562cab870ac64ca6330252afe6cbeadcffd159",
                 "shasum": ""
             },
             "require": {
@@ -56,20 +56,20 @@
                 "issues": "https://github.com/pfilsx/core-lite/issues?state=open",
                 "source": "https://github.com/pfilsx/core-lite"
             },
-            "time": "2017-11-24T13:11:09+00:00"
+            "time": "2017-12-05T08:57:01+00:00"
         },
         {
             "name": "pfilsx/core-lite-bootstrap3",
-            "version": "1.5",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pfilsx/core-lite-bootstrap3.git",
-                "reference": "2cd8a9829fee25c2c54accda9e472e5e89d4c73d"
+                "reference": "cb28c5213ea1a3ffaee503e9da1391ce2ef93bc5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pfilsx/core-lite-bootstrap3/zipball/2cd8a9829fee25c2c54accda9e472e5e89d4c73d",
-                "reference": "2cd8a9829fee25c2c54accda9e472e5e89d4c73d",
+                "url": "https://api.github.com/repos/pfilsx/core-lite-bootstrap3/zipball/cb28c5213ea1a3ffaee503e9da1391ce2ef93bc5",
+                "reference": "cb28c5213ea1a3ffaee503e9da1391ce2ef93bc5",
                 "shasum": ""
             },
             "require": {
@@ -99,13 +99,29 @@
                 "issues": "https://github.com/pfilsx/core-lite-bootstap3/issues",
                 "source": "https://github.com/pfilsx/core-lite-bootstap3"
             },
-            "time": "2017-11-24T13:44:12+00:00"
+            "time": "2017-12-05T09:05:37+00:00"
         }
     ],
     "packages-dev": [],
-    "aliases": [],
+    "aliases": [
+        {
+            "alias": "1.5-dev",
+            "alias_normalized": "1.5.0.0-dev",
+            "version": "dev-develop",
+            "package": "pfilsx/core-lite"
+        },
+        {
+            "alias": "1.5-dev",
+            "alias_normalized": "1.5.0.0-dev",
+            "version": "9999999-dev",
+            "package": "pfilsx/core-lite-bootstrap3"
+        }
+    ],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "pfilsx/core-lite": 20,
+        "pfilsx/core-lite-bootstrap3": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],

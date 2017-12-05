@@ -23,26 +23,18 @@ use core\helpers\Url;
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-2">
-                <div class="list-group">
-                    <a href="<?= Url::toAction('single-model-generator'); ?>" class="list-group-item">
-                        Single Model Generator
-                    </a>
-                    <a href="<?= Url::toAction('multiple-model-generator'); ?>" class="list-group-item">
-                        Multiple Model Generator
-                    </a>
-                    <a href="<?= Url::toAction('crud-generator'); ?>" class="list-group-item">
-                        CRUD Generator
-                    </a>
-                    <a href="<?= Url::toAction('form-generator'); ?>" class="list-group-item">
-                        Form Generator
-                    </a>
-                    <a href="<?= Url::toAction('controller-generator'); ?>" class="list-group-item">
-                        Controller Generator
-                    </a>
-                    <a href="<?= Url::toAction('module-generator'); ?>" class="list-group-item">
-                        Module Generator
-                    </a>
-                </div>
+
+                <?= \core\bootstrap\Menu::widget([
+                        'orientation' => 'vertical',
+                        'items' => [
+                            ['label' => 'Single Model Generator', 'url' => Url::toAction('single-model-generator')],
+                            ['label' => 'Multiple Model Generator', 'url' => Url::toAction('multiple-model-generator')],
+                            ['label' => 'CRUD Generator', 'url' => Url::toAction('crud-generator')],
+                            ['label' => 'Form Generator', 'url' => Url::toAction('form-generator')],
+                            ['label' => 'Controller Generator', 'url' => Url::toAction('controller-generator')],
+                            ['label' => 'Module Generator', 'url' => Url::toAction('module-generator')]
+                        ]
+                ]); ?>
             </div>
             <div class="col-md-8">
                 <?= $this->getViewContent(); ?>
