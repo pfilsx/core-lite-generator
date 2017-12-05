@@ -40,7 +40,7 @@ class ModuleGeneratorForm extends Model implements IGenerator
                 return 'Unable to save module file. Permission denied.';
             }
             @chmod($moduleFileName, 0777);
-            $controllerPath = $path.DIRECTORY_SEPARATOR.'controllers';
+            $controllerPath = $this->module_path.'/'.strtolower($this->module_name).'/controllers';
             $controllerGenerator = new ControllerGeneratorForm([
                 'controller_name' => 'Default',
                 'controller_namespace' => $this->module_namespace.'\controllers',
