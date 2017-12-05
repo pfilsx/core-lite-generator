@@ -32,7 +32,7 @@ class ModuleGeneratorForm extends Model implements IGenerator
         $path = FileHelper::normalizePath(Core::getAlias($this->module_path).'/'.strtolower($this->module_name));
         if (@FileHelper::createDirectory($path, 0777)){
             $moduleFileName = $path.DIRECTORY_SEPARATOR.ucfirst($this->module_name).'.php';
-            $moduleContent = View::renderPartial('module', ['generator' => $this]);
+            $moduleContent = View::renderPartial('@core-gen/views/templates/module.php', ['generator' => $this]);
             if ($moduleContent == null){
                 return 'Unable to generate module class';
             }
