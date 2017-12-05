@@ -60,7 +60,7 @@ use core\helpers\Url;
         <div class="thumbnail">
             <div class="caption">
                 <h3>Controller generator</h3>
-                <p>This generator generates a controller template.</p>
+                <p>This generator helps you to quickly generate a new controller class with one or several controller actions.</p>
                 <p>
                     <a href="<?= Url::toAction('controller-generator')?>" class="btn btn-primary" role="button">Start >></a>
                 </p>
@@ -71,7 +71,7 @@ use core\helpers\Url;
         <div class="thumbnail">
             <div class="caption">
                 <h3>Module generator</h3>
-                <p>This generator generates a module template.</p>
+                <p>This generator helps you to generate the code template needed by a Core-Lite module.</p>
                 <p>
                     <a href="<?= Url::toAction('module-generator')?>" class="btn btn-primary" role="button">Start >></a>
                 </p>

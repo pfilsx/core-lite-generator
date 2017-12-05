@@ -9,6 +9,7 @@ use core\generator\models\FormGeneratorForm;
 use core\generator\models\ModelGeneratorForm;
 use core\base\App;
 use core\components\Controller;
+use core\generator\models\ModuleGeneratorForm;
 use core\generator\models\MultipleModelGeneratorForm;
 
 class DefaultController extends Controller
@@ -123,7 +124,25 @@ class DefaultController extends Controller
     }
 
     public function actionModuleGenerator(){
-        return $this->render('module', []);
+        $model = new ModuleGeneratorForm([
+            'module_namespace' => 'app\modules',
+            'module_path' => '@app'.DIRECTORY_SEPARATOR.'modules'
+        ]);
+        if (App::$instance->request->isPost){
+            if ($model->load(App::$instance->request->post)){
+                if (App::$instance->request->isAjax){
+                    return $model->ajaxValidate();
+                }
+                if (($result = $model->generate()) === true){
+                    App::$instance->session->setFlash('message', "Module '{$model->module_name}' successfully generated");
+                    $model->module_name = null;
+                } else {
+                    App::$instance->session
+                        ->setFlash('error_message', "An error occurred while creating '{$model->module_name}': {$result}");
+                }
+            }
+        }
+        return $this->render('module', ['model' => $model]);
     }
 
     public function actionCrudGenerator(){

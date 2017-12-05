@@ -10,7 +10,7 @@ use core\base\App;
 </div>
 <div class="row">
     <h1>Controller generator</h1>
-    <p>This generator generates a Controller class</p>
+    <p>This generator helps you to quickly generate a new controller class with one or several controller actions</p>
 </div>
 <div class="row">
     <?php if (($message = App::$instance->session->getFlash('message')) !== null) { ?>

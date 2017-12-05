@@ -10,7 +10,7 @@ use core\base\App;
 </div>
 <div class="row">
     <h1>Module generator</h1>
-    <p>This generator generates a module template.</p>
+    <p>This generator helps you to generate the code template needed by a Core-Lite module.</p>
 </div>
 <div class="row">
     <?php if (($message = App::$instance->session->getFlash('message')) !== null) { ?>
@@ -21,6 +21,27 @@ use core\base\App;
 </div>
 <div class="row">
     <div class="col-md-12">
-        Not implemented yet.
+        <?php $form = \core\bootstrap\ActiveForm::begin([
+            'method' => 'post',
+            'ajaxValidation' => true,
+            'options' => [
+                'class' => 'form-horizontal'
+            ]
+        ]); ?>
+        <?= $form->field($model, 'module_name')->input('text', [
+            'required' => true
+        ]); ?>
+
+        <?= $form->field($model, 'module_namespace')->input('text', [
+            'required' => true
+        ]); ?>
+
+        <?= $form->field($model, 'module_path')->input('text', [
+            'required' => true
+        ]); ?>
+        <div class="form-group">
+            <input type="submit" class="btn btn-success" value="Generate">
+        </div>
+        <?php \core\bootstrap\ActiveForm::end(); ?>
     </div>
 </div>
