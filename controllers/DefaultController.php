@@ -123,10 +123,10 @@ class DefaultController extends Controller
     }
 
     public function actionModuleGenerator(){
-        return 'Not implemented yet';
+        return $this->render('module', []);
     }
 
     public function actionCrudGenerator(){
-        return 'Not implemented yet';
+        return $this->render('crud', []);
     }
 }

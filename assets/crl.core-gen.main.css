@@ -5,3 +5,41 @@ html, body {
 .thumbnail {
     min-height: 220px;
 }
+@-webkit-keyframes pulse-outer{0%{opacity:1}50%{opacity:.5;}100%{opacity:0;}}
+@keyframes pulse-outer{0%{opacity:1}50%{opacity:.5;}100%{opacity:0;}}
+@-webkit-keyframes pulse-inner{0%{opacity:0;-webkit-transform:scale(0);transform:scale(0)}100%{opacity:1;-webkit-transform:scale(1);transform:scale(1)}}
+@keyframes pulse-inner{0%{opacity:0;-webkit-transform:scale(0);transform:scale(0)}100%{opacity:1;-webkit-transform:scale(1);transform:scale(1)}}
+.loader {
+    position: fixed;
+    z-index: 9999;
+    background: rgba(255,255,255, .5);
+    height: 100%;
+    width: 100%;
+    top:0;
+    left:0;
+    display: none;
+}
+.loader .pulse::before {
+    -webkit-animation: pulse-outer .8s ease-in infinite;
+    animation: pulse-outer .8s ease-in infinite;
+}
+.loader .pulse::after {
+    -webkit-animation: pulse-inner .8s linear infinite;
+    animation: pulse-inner .8s linear infinite;
+}
+.loader .pulse::after, .loader .pulse::before {
+    content: '';
+    border: 5px solid #333;
+    width: 80px;
+    height: 80px;
+    -webkit-border-radius: 500px;
+    border-radius: 500px;
+    position: absolute;
+}
+.loader .pulse {
+    position: relative;
+    left: 50%;
+    top: 50%;
+    margin-left: -40px;
+    margin-top: -80px;
+}

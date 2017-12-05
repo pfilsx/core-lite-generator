@@ -36,6 +36,7 @@ $('.multiple-generate').on('click', function () {
         return;
     }
     btn.prop('disabled', true);
+    $('.loader').show();
     var data = form.serializeArray();
     var models = [];
     form.find('.table_checkbox:checked').each(function (idx, check) {
@@ -48,13 +49,13 @@ $('.multiple-generate').on('click', function () {
         }
     });
     data.push({name: 'models', value: JSON.stringify(models)});
-    console.log(data);
     $.ajax({
         method: 'post',
         url: '',
         data: data,
         dataType: 'json',
         success: function (data) {
+            $('.loader').hide();
             var infoBlock = $('.alert');
             if (data.success) {
                 infoBlock.removeClass('alert-danger').addClass('alert-success').text(data.message).show();
@@ -63,6 +64,9 @@ $('.multiple-generate').on('click', function () {
             }
             btn.prop('disabled', false);
             window.scrollTo(0, 0);
+        },
+        error: function(){
+            $('.loader').hide();
         }
     });
 });
