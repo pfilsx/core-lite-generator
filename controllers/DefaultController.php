@@ -5,6 +5,7 @@ namespace core\generator\controllers;
 
 
 use core\generator\models\ControllerGeneratorForm;
+use core\generator\models\CrudGeneratorForm;
 use core\generator\models\FormGeneratorForm;
 use core\generator\models\ModelGeneratorForm;
 use core\base\App;
@@ -146,6 +147,23 @@ class DefaultController extends Controller
     }
 
     public function actionCrudGenerator(){
-        return $this->render('crud', []);
+        $model = new CrudGeneratorForm([
+            'view_path' => '@app'.DIRECTORY_SEPARATOR.'views'
+        ]);
+        if (App::$instance->request->isPost){
+            if ($model->load(App::$instance->request->post)){
+                if (App::$instance->request->isAjax){
+                    return $model->ajaxValidate();
+                }
+                if (($result = $model->generate()) === true){
+                    App::$instance->session->setFlash('message', "CRUD for '{$model->model_class}' successfully generated");
+                    $model->model_class = null;
+                } else {
+                    App::$instance->session
+                        ->setFlash('error_message', "An error occurred while creating CRUD for '{$model->model_class}': {$result}");
+                }
+            }
+        }
+        return $this->render('crud', ['model' => $model]);
     }
 }

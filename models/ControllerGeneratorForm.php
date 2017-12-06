@@ -29,6 +29,9 @@ class ControllerGeneratorForm extends Model implements IGenerator
         if (!$this->validate()){
             return 'One of the attributes failed validation';
         }
+        if (strpos($this->controller_name, 'Controller') === false){
+            $this->controller_name .= 'Controller';
+        }
         $path = FileHelper::normalizePath(Core::getAlias($this->controller_path));
         $result = View::renderPartial('@core-gen/views/templates/controller.php',[
             'generator' => $this
@@ -38,7 +41,7 @@ class ControllerGeneratorForm extends Model implements IGenerator
         }
 
         if (@FileHelper::createDirectory($path, 0777)){
-            $fileName = $path.DIRECTORY_SEPARATOR.$this->controller_name.'Controller.php';
+            $fileName = $path.DIRECTORY_SEPARATOR.$this->controller_name.'.php';
             if (@file_put_contents($fileName, $result) !== false){
                 chmod($fileName, 0777);
                 return true;

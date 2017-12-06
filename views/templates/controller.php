@@ -9,7 +9,7 @@ namespace <?= $generator->controller_namespace ?>;
 
 use core\components\Controller;
 
-class <?= $generator->controller_name.'Controller' ?> extends Controller
+class <?= $generator->controller_name ?> extends Controller
 {
 <?php foreach ($generator->getActions() as $action) { ?>
     public function <?= $action ?>()
