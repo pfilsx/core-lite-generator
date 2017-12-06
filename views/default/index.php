@@ -2,11 +2,6 @@
 use core\helpers\Url;
 ?>
 <div class="row">
-    <?= \core\bootstrap\Breadcrumbs::widget(['items' => [
-        'Core-Lite Generator' => null
-    ]]); ?>
-</div>
-<div class="row">
     <div class="page-header">
         <h1>Welcome to Core-Lite code generator</h1>
     </div>

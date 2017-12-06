@@ -24,7 +24,7 @@ use core\helpers\Url;
 </header>
     <div class="container">
         <div class="row">
-            <div class="col-md-2">
+            <div class="col-md-3 col-sm-4">
 
                 <?= \core\bootstrap\Menu::widget([
                         'orientation' => 'vertical',
@@ -38,7 +38,7 @@ use core\helpers\Url;
                         ]
                 ]); ?>
             </div>
-            <div class="col-md-8">
+            <div class="col-md-9 col-sm-8">
                 <?= $this->getViewContent(); ?>
             </div>
         </div>
