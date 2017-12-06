@@ -33,7 +33,7 @@ class DefaultController extends Controller
         $model = new ModelGeneratorForm([
             'model_namespace' => 'app\models',
             'model_base_class' => '\core\components\ActiveModel',
-            'models_path' => '@app'.DIRECTORY_SEPARATOR.'models'
+            'models_path' => '@app/models'
         ]);
         if (App::$instance->request->isPost){
             if ($model->load(App::$instance->request->post)){
@@ -61,7 +61,7 @@ class DefaultController extends Controller
         $model = new MultipleModelGeneratorForm([
             'models_namespace' => 'app\models',
             'models_base_class' => '\core\components\ActiveModel',
-            'models_path' => '@app'.DIRECTORY_SEPARATOR.'models'
+            'models_path' => '@app/models'
         ]);
         if (App::$instance->request->isPost){
             $post = App::$instance->request->post;
@@ -83,7 +83,7 @@ class DefaultController extends Controller
     public function actionFormGenerator(){
         $model = new FormGeneratorForm([
             'view_name' => 'form',
-            'view_path' => '@app'.DIRECTORY_SEPARATOR.'views'
+            'view_path' => '@app/views'
         ]);
         if (App::$instance->request->isPost){
             if ($model->load(App::$instance->request->post)){
@@ -104,7 +104,7 @@ class DefaultController extends Controller
     public function actionControllerGenerator(){
         $model = new ControllerGeneratorForm([
             'controller_namespace' => 'app\controllers',
-            'controller_path' => '@app'.DIRECTORY_SEPARATOR.'controllers',
+            'controller_path' => '@app/controllers',
             'controller_actions' => 'index'
         ]);
         if (App::$instance->request->isPost){
@@ -127,7 +127,7 @@ class DefaultController extends Controller
     public function actionModuleGenerator(){
         $model = new ModuleGeneratorForm([
             'module_namespace' => 'app\modules',
-            'module_path' => '@app'.DIRECTORY_SEPARATOR.'modules'
+            'module_path' => '@app/modules'
         ]);
         if (App::$instance->request->isPost){
             if ($model->load(App::$instance->request->post)){
@@ -148,7 +148,7 @@ class DefaultController extends Controller
 
     public function actionCrudGenerator(){
         $model = new CrudGeneratorForm([
-            'view_path' => '@app'.DIRECTORY_SEPARATOR.'views'
+            'view_path' => '@app/views'
         ]);
         if (App::$instance->request->isPost){
             if ($model->load(App::$instance->request->post)){

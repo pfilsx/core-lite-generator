@@ -16,11 +16,13 @@ use core\helpers\Url;
 <body class="admin-body">
 <?= $this->beginBody() ?>
 <header class="navbar navbar-inverse navbar-static-top">
-    <div class="navbar-header">
-        <a class="navbar-brand" href="#">Core-Lite Generator</a>
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="<?= \core\helpers\Url::toAction('index'); ?>">Core-Lite Generator</a>
+        </div>
     </div>
 </header>
-    <div class="container-fluid">
+    <div class="container">
         <div class="row">
             <div class="col-md-2">
 
