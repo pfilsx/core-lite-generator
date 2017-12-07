@@ -1,7 +1,8 @@
 <?php
 
+use core\helpers\Url;
 
-\app\shop_lite\modules\generator\CoreGenAssets::registerAssets();
+\core\generator\CoreGenAssets::register();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,12 +16,32 @@
 <body class="admin-body">
 <?= $this->beginBody() ?>
 <header class="navbar navbar-inverse navbar-static-top">
-    <div class="navbar-header">
-        <a class="navbar-brand" href="#">Core-Lite Generator</a>
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="<?= \core\helpers\Url::toAction('index'); ?>">Core-Lite Generator</a>
+        </div>
     </div>
 </header>
     <div class="container">
-        <?= $this->getViewContent(); ?>
+        <div class="row">
+            <div class="col-md-3 col-sm-4">
+
+                <?= \core\bootstrap\Menu::widget([
+                        'orientation' => 'vertical',
+                        'items' => [
+                            ['label' => 'Single Model Generator', 'url' => Url::toAction('single-model-generator')],
+                            ['label' => 'Multiple Model Generator', 'url' => Url::toAction('multiple-model-generator')],
+                            ['label' => 'CRUD Generator', 'url' => Url::toAction('crud-generator')],
+                            ['label' => 'Form Generator', 'url' => Url::toAction('form-generator')],
+                            ['label' => 'Controller Generator', 'url' => Url::toAction('controller-generator')],
+                            ['label' => 'Module Generator', 'url' => Url::toAction('module-generator')]
+                        ]
+                ]); ?>
+            </div>
+            <div class="col-md-9 col-sm-8">
+                <?= $this->getViewContent(); ?>
+            </div>
+        </div>
     </div>
 
 <?= $this->endBody() ?>
