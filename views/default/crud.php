@@ -21,27 +21,6 @@ use core\base\App;
 </div>
 <div class="row">
     <div class="col-md-12">
-        <?php $form = \core\bootstrap\ActiveForm::begin([
-            'method' => 'post',
-            'ajaxValidation' => true,
-            'options' => [
-                'class' => 'form-horizontal'
-            ]
-        ]); ?>
-        <?= $form->field($model, 'model_class')->input('text', [
-            'required' => true
-        ]); ?>
-
-        <?= $form->field($model, 'controller_class')->input('text', [
-            'required' => true
-        ]); ?>
-
-        <?= $form->field($model, 'view_path')->input('text', [
-            'required' => true
-        ]); ?>
-        <div class="form-group">
-            <input type="submit" class="btn btn-success" value="Generate">
-        </div>
-        <?php \core\bootstrap\ActiveForm::end(); ?>
+        Not implemented yet
     </div>
 </div>

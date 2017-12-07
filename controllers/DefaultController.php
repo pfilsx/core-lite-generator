@@ -150,20 +150,20 @@ class DefaultController extends Controller
         $model = new CrudGeneratorForm([
             'view_path' => '@app/views'
         ]);
-        if (App::$instance->request->isPost){
-            if ($model->load(App::$instance->request->post)){
-                if (App::$instance->request->isAjax){
-                    return $model->ajaxValidate();
-                }
-                if (($result = $model->generate()) === true){
-                    App::$instance->session->setFlash('message', "CRUD for '{$model->model_class}' successfully generated");
-                    $model->model_class = null;
-                } else {
-                    App::$instance->session
-                        ->setFlash('error_message', "An error occurred while creating CRUD for '{$model->model_class}': {$result}");
-                }
-            }
-        }
+//        if (App::$instance->request->isPost){
+//            if ($model->load(App::$instance->request->post)){
+//                if (App::$instance->request->isAjax){
+//                    return $model->ajaxValidate();
+//                }
+//                if (($result = $model->generate()) === true){
+//                    App::$instance->session->setFlash('message', "CRUD for '{$model->model_class}' successfully generated");
+//                    $model->model_class = null;
+//                } else {
+//                    App::$instance->session
+//                        ->setFlash('error_message', "An error occurred while creating CRUD for '{$model->model_class}': {$result}");
+//                }
+//            }
+//        }
         return $this->render('crud', ['model' => $model]);
     }
 }
