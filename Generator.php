@@ -11,7 +11,7 @@ use core\components\Module;
 class Generator extends Module
 {
 
-    public function initializeModule($options)
+    public function initializeModule()
     {
         App::$instance->router->addRules([
             'generator' => ['route' => $this->id.'/default/index'],
