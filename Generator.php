@@ -11,7 +11,7 @@ use core\components\Module;
 class Generator extends Module
 {
 
-    public function initializeModule($options)
+    public function initializeModule()
     {
         App::$instance->router->addRules([
             'generator' => ['route' => $this->id.'/default/index'],
@@ -19,5 +19,10 @@ class Generator extends Module
             'generator/<action>' => ['route' => $this->id.'/default/<action>']
         ]);
         Core::setAlias('@core-gen', $this->getBasePath());
+    }
+
+    public function getId()
+    {
+        return 'crl-generator';
     }
 }
