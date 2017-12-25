@@ -15,7 +15,7 @@
     }
   ],
   "require": {
-    "pfilsx/core-lite": ">= 1.6",
+    "pfilsx/core-lite": ">= 1.7",
     "pfilsx/core-lite-bootstrap3": ">= 1.6"
   },
   "repositories": [

@@ -20,4 +20,9 @@ class Generator extends Module
         ]);
         Core::setAlias('@core-gen', $this->getBasePath());
     }
+
+    public function getId()
+    {
+        return 'crl-generator';
+    }
 }
