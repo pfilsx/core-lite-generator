@@ -8,7 +8,7 @@ use core\generator\models\ControllerGeneratorForm;
 use core\generator\models\CrudGeneratorForm;
 use core\generator\models\FormGeneratorForm;
 use core\generator\models\ModelGeneratorForm;
-use core\base\App;
+use core\web\App;
 use core\components\Controller;
 use core\generator\models\ModuleGeneratorForm;
 use core\generator\models\MultipleModelGeneratorForm;

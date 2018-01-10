@@ -4,7 +4,7 @@
 namespace core\generator\models;
 
 
-use core\base\App;
+use core\web\App;
 use core\components\Model;
 
 /**
