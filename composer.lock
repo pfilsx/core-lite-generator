@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "fa937432afc28728f30412612fb4281a",
+    "content-hash": "c43b9ea11c7cca1d0b72535a94231b7e",
     "packages": [
         {
             "name": "pfilsx/core-lite",
-            "version": "dev-feature/app-rework",
+            "version": "1.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pfilsx/core-lite.git",
-                "reference": "8741e6fe91f49c01d4f17d1756e840a74caa1c42"
+                "reference": "537be7071ce83812c849019353feb24664502f7d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pfilsx/core-lite/zipball/8741e6fe91f49c01d4f17d1756e840a74caa1c42",
-                "reference": "8741e6fe91f49c01d4f17d1756e840a74caa1c42",
+                "url": "https://api.github.com/repos/pfilsx/core-lite/zipball/537be7071ce83812c849019353feb24664502f7d",
+                "reference": "537be7071ce83812c849019353feb24664502f7d",
                 "shasum": ""
             },
             "require": {
@@ -56,7 +56,7 @@
                 "issues": "https://github.com/pfilsx/core-lite/issues?state=open",
                 "source": "https://github.com/pfilsx/core-lite"
             },
-            "time": "2018-01-10T10:29:15+00:00"
+            "time": "2018-01-10T11:17:02+00:00"
         },
         {
             "name": "pfilsx/core-lite-bootstrap3",
@@ -103,18 +103,9 @@
         }
     ],
     "packages-dev": [],
-    "aliases": [
-        {
-            "alias": "1.8-dev",
-            "alias_normalized": "1.8.0.0-dev",
-            "version": "dev-feature/app-rework",
-            "package": "pfilsx/core-lite"
-        }
-    ],
+    "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "pfilsx/core-lite": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],

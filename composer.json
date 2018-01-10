@@ -15,7 +15,7 @@
     }
   ],
   "require": {
-    "pfilsx/core-lite": "dev-feature/app-rework as 1.8-dev",
+    "pfilsx/core-lite": ">= 1.9",
     "pfilsx/core-lite-bootstrap3": ">= 1.8"
   },
   "repositories": [
