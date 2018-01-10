@@ -5,7 +5,7 @@ namespace core\generator\models;
 
 
 use Core;
-use core\base\App;
+use core\web\App;
 use core\components\Model;
 use core\components\View;
 use core\db\ColumnSchema;

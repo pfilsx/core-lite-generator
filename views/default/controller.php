@@ -1,6 +1,6 @@
 <?php
 use core\helpers\Url;
-use core\base\App;
+use core\web\App;
 ?>
 <div class="row">
     <?= \core\bootstrap\Breadcrumbs::widget(['items' => [
