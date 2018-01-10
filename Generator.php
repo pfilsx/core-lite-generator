@@ -5,7 +5,7 @@ namespace core\generator;
 
 
 use Core;
-use core\base\App;
+use core\web\App;
 use core\components\Module;
 
 class Generator extends Module

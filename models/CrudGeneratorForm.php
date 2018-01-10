@@ -52,7 +52,7 @@ class CrudGeneratorForm extends Model implements IGenerator
             .DIRECTORY_SEPARATOR.(strtolower(str_replace('Controller','',$this->_controller_name)));
         if (@FileHelper::createDirectory($controllerPath)){
             if (@FileHelper::createDirectory($viewsPath)){
-
+                //TODO
             }
             return 'Unable to create views directory. Permission denied.';
         }
